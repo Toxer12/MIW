@@ -13,3 +13,8 @@ def row_one():
             print(y)
 
 row_one()
+
+for i in range(arr_2d.shape[0]):   
+   # Iterate over columns
+   for j in range(arr_2d.shape[1]):  
+      print(arr_2d[i, j])
