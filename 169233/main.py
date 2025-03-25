@@ -8,6 +8,7 @@ data =np.loadtxt('Dane.txt', dtype=int)
 
 def row_one():
     for x in data:
+        print(" ")
         for y in x:
             print(y)
 
