@@ -1,0 +1,30 @@
+import sklearn
+import numpy as np
+import pandas as pd
+file_path = 'iris.data'
+df = pd.read_csv(file_path)
+
+df_train, df_test = sklearn.model_selection.train_test_split(df, test_size=0.3, train_size=0.7)
+
+test = np.split(df_test, [4], axis=1)
+train = np.split(df_train, [4], axis=1)
+# by sie dostac do samych odleglosci uzyj np. test[0] a do samych klas test[1]
+#len(test[0]) zwroci dlugosc arraya
+
+def knn(k, test, train):
+    result = [None] * len(test[0]) #inicjalizacja listy
+    lengts = [None] * len(train[0])
+
+    df_test=pd.DataFrame(test)
+    df_train=pd.DataFrame(train)
+
+    for row in df_test.itertuples():
+        print(row)
+
+
+knn(5, test, train)
+
+
+
+
+
