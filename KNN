@@ -8,22 +8,23 @@ df_train, df_test = sklearn.model_selection.train_test_split(df, test_size=0.3, 
 
 test = np.split(df_test, [4], axis=1)
 train = np.split(df_train, [4], axis=1)
-# by sie dostac do samych odleglosci uzyj np. test[0] a do samych klas test[1]
+#by sie dostac do samych odleglosci uzyj np. test[0] a do samych klas test[1]
 #len(test[0]) zwroci dlugosc arraya
 
 def knn(k, test, train):
-    result = [None] * len(test[0]) #inicjalizacja listy
-    lengts = [None] * len(train[0])
-
-    df_test=pd.DataFrame(test)
-    df_train=pd.DataFrame(train)
-
-    for row in df_test.itertuples():
-        print(row)
+    result = pd.Series([None] * len(test[0])) #inicjalizacja listy
 
 
-knn(5, test, train)
+    for row in test[0].itertuples():
+        lenghts = pd.Series([None] * len(train[0]))
+        for row1 in train[0].itertuples():
+            lenghts[row1]=((row[0]-row1[0])**2+(row[1]-row1[1])**2+(row[2]-row1[2])**2)**0.5
+        #result[row]=lenghts
 
+    #print(result)
+
+
+knn(3, test, train)
 
 
 
