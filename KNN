@@ -14,14 +14,31 @@ train = np.split(df_train, [4], axis=1)
 def knn(k, test, train):
     result = pd.Series([None] * len(test[0])) #inicjalizacja listy
 
-
     for row in test[0].itertuples():
         lenghts = pd.Series([None] * len(train[0]))
+        x = 0
+        y=0
         for row1 in train[0].itertuples():
-            lenghts[row1]=((row[0]-row1[0])**2+(row[1]-row1[1])**2+(row[2]-row1[2])**2)**0.5
-        #result[row]=lenghts
+            r00=row[0]
+            r10=row1[0]
+            r01=row[1]
+            r11=row1[1]
+            r02=row[2]
+            r12=row1[2]
+            lenghts[x]=((r00-r10)**2+(r01-r11)**2+(r02-r12)**2)**0.5
+            x=x+1
 
-    #print(result)
+        min = pd.Series([0]*k)
+        for i in min:
+            min[y]=lenghts.min(lenghts.index())
+            lenghts.min()
+            print(min)
+            y=y+1
+
+
+
+
+
 
 
 knn(3, test, train)
