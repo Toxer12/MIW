@@ -11,4 +11,8 @@ tablica_decyzyja =np.array([
     [1,1,2,2,4,1,1]])
 #tablica decyzyjna[0][4] zwraca 3
 h, w = tablica_decyzyja.shape
-print(h,w)
+#tablica przechodzi najpierw po osi x
+for i in range(h):
+    for j in range(w):
+        print(tablica_decyzyja[i][j])
+    print("\n")
